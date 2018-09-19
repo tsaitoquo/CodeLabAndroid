@@ -1,5 +1,6 @@
 package jp.saitravolta.codelab
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_notifications -> {
                 message.setText(R.string.title_notifications)
+                startActivity(Intent(this, SecondActivity::class.java))
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -30,5 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        button.setOnClickListener{startActivity(Intent(this, SecondActivity::class.java))}
+
     }
 }
